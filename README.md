@@ -46,7 +46,7 @@ This repository contains the code for a Flask application, infrastructure config
    - Create limited user to read/write tfstate file inside previous bucket and note the access key and secret key
    ```bash
    aws iam create-user --user-name ${TFSTATE_BUCKET_NAME}
-   aws iam create-policy --policy-name ${TFSTATE_BUCKET_NAME}-policy --policy-document file://${TFSTATE_BUCKET_NAME}-policy.json
+   aws iam create-policy --policy-name ${TFSTATE_BUCKET_NAME}-policy --policy-document file://${TFSTATE_BUCKET_NAME}.json
    aws iam attach-user-policy --user-name ${TFSTATE_BUCKET_NAME} --policy-arn arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${TFSTATE_BUCKET_NAME}-policy
    aws --profile wiliot iam create-access-key --user-name ${TFSTATE_BUCKET_NAME}
    ```
