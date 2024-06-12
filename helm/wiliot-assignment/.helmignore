@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+*.swp
+*.tgz
+*.bak
+*.md
+.DS_Store
+.git
+.gitignore

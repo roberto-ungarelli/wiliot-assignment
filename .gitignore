@@ -1,0 +1,35 @@
+set-variables.sh
+
+
+# Local .terraform directories
+**/.terraform/*
+
+# Terraform variable files containing sensitive data
+*.tfvars
+*.tfvars.json
+
+# Override files (typically contain sensitive information or configurations specific to a local environment)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Credentials and secrets (e.g., AWS credentials)
+*.pem
+*.key
+
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Ignore Terraform plan output files
+*.tfplan
+
+# CLI configuration files
+.terraformrc
+terraform.rc

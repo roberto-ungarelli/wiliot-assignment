@@ -1,0 +1,33 @@
+replicaCount: 1
+
+image:
+  repository: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/wiliot-assignment
+  tag: 1.0.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  ingressClassName: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - host: app.${DEFAULT_DOMAIN}
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - app.${DEFAULT_DOMAIN}
+      secretName: crt-app
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "250Mi"
+  limits:
+    cpu: "100m"
+    memory: "500Mi"
